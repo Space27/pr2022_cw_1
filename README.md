@@ -7,4 +7,3 @@ https://docs.google.com/document/d/1d_ov0WjDCaQ3W2VciEFqTfo_uMtsLo_4KeaVWVjhzhk/
 # launch
 To build the program, you will need the make and gcc utilities.
 _Linux_: To run the program, you need to write the command **make && ./cw_exe** in the project folder
-_Windows_: To run the program, you need to write the command **make && start cw_exe.exe** in the project folder

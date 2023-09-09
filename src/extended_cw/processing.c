@@ -184,7 +184,7 @@ int removeWordsWithLastUpperCase(TextStruct *text)
 	{
 		wchar_t *pointer;
 		wchar_t *stringCopy = copyString(text->sentenceArray[i]);
-		wchar_t *word = wcstok(stringCopy, L" ,"/*, &pointer*/);
+		wchar_t *word = wcstok(stringCopy, L" ,", &pointer);
 		while (word != NULL)
 		{
 			if (iswupper(word[wcslen(word) - 1]))
@@ -194,7 +194,7 @@ int removeWordsWithLastUpperCase(TextStruct *text)
 				text->sentenceArray[i].wordCount--;
 				deletedCount++;
 			}
-			word = wcstok(NULL, L" ,"/*, &pointer*/);
+			word = wcstok(NULL, L" ,", &pointer);
 		}
 		if (text->sentenceArray[i].wordCount == 0)
 			/* после удалений слов предложение стало пустым */
@@ -266,7 +266,7 @@ TextStruct getWordsSameLength(TextStruct text)
 	{
 		wchar_t *pointer;
 		wchar_t *stringCopy = copyString(text.sentenceArray[i]);
-		wchar_t *word = wcstok(stringCopy, L" ,"/*, &pointer*/);
+		wchar_t *word = wcstok(stringCopy, L" ,", &pointer);
 		while (word != NULL)
 		{
 			wordLen = (int) wcslen(word);
@@ -297,7 +297,7 @@ TextStruct getWordsSameLength(TextStruct text)
 			}
 			wcsncat(wordList.sentenceArray[wordLen - 1].content, word, wordLen);
 			wcsncat(wordList.sentenceArray[wordLen - 1].content, L" ", 1);
-			word = wcstok(NULL, L" ,"/*, &pointer*/);
+			word = wcstok(NULL, L" ,", &pointer);
 		}
 		free(stringCopy);
 	}
